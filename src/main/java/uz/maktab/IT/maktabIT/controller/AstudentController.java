@@ -15,7 +15,8 @@ public class AstudentController {
     @Autowired
     AstudentService astudentService;
     @GetMapping
-    public Page<Astudent> getAll(@RequestParam(required = false) Pageable pageable){
+    public Page<Astudent> getAll(@RequestParam(required = false) String key, Pageable pageable){
+        if(key ==null) key ="";
         return astudentService.getAll(pageable);
     }
 
