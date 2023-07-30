@@ -16,7 +16,9 @@ public class RoomController {
     RoomService roomService;
 
     @GetMapping
-    public Page<Room> getAll(@RequestParam(required = false) Pageable pageable){
+    public Page<Room> getAll(@RequestParam(required = false) String key, Pageable pageable){
+        if(key ==null) key ="";
+
         return roomService.getAll(pageable);
     }
     @PostMapping

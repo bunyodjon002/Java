@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import uz.maktab.IT.maktabIT.entity.Astudent;
 import uz.maktab.IT.maktabIT.entity.Room;
 import uz.maktab.IT.maktabIT.repository.RoomRepository;
 import uz.maktab.IT.maktabIT.service.RoomService;
@@ -36,4 +37,16 @@ public class RoomServiceimpl implements RoomService {
         roomRepository.deleteById(id);
 
     }
+    @Override
+    public Page<Room> findAllByNameContainsIgnoreCaseOrId(String key, Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return roomRepository.findAllByNameContainsIgnoreCaseOrId(key , n ,pageable);
+        }  catch (Exception f){
+            return roomRepository.findAllByNameContainsIgnoreCaseOrId(key,(long) -1,pageable);
+        }
+    }
+
+
 }

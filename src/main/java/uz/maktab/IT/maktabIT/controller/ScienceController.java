@@ -16,7 +16,9 @@ public class ScienceController {
     ScienceService scienceService;
 
     @GetMapping
-    public Page<Science> getAll(@RequestParam(required = false) Pageable pageable){
+    public Page<Science> getAll(@RequestParam(required = false)String key,  Pageable pageable){
+
+        if(key ==null) key ="";
         return scienceService.getAll(pageable);
     }
     @PostMapping

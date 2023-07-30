@@ -38,4 +38,16 @@ public class SclassServiceimpl implements SclassService {
         sclassRepository.deleteById(id);
 
     }
+    @Override
+    public Page<Sclass> findAllByNameContainsIgnoreCaseOrId(String key, Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return sclassRepository.findAllByNameContainsIgnoreCaseOrId(key , n ,pageable);
+        }  catch (Exception f){
+            return sclassRepository.findAllByNameContainsIgnoreCaseOrId(key,(long) -1,pageable);
+        }
+    }
+
+
 }

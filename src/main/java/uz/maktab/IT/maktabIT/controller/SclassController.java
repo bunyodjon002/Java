@@ -16,7 +16,8 @@ public class SclassController {
    SclassService sclassService;
 
     @GetMapping
-    public Page<Sclass> getAll(@RequestParam(required = false) Pageable pageable){
+    public Page<Sclass> getAll(@RequestParam(required = false) String key, Pageable pageable){
+        if(key ==null) key ="";
         return sclassService.getAll(pageable);
     }
     @PostMapping

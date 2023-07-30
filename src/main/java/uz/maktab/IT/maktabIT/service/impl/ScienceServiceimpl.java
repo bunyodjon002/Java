@@ -39,4 +39,17 @@ public class ScienceServiceimpl implements ScienceService {
         scienceRepository.deleteById(id);
 
     }
+    @Override
+    public Page<Science> findAllByNameContainsIgnoreCaseOrId(String key, Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return scienceRepository.findAllByNameContainsIgnoreCaseOrId(key , n ,pageable);
+        }  catch (Exception f){
+            return scienceRepository.findAllByNameContainsIgnoreCaseOrId(key,(long) -1,pageable);
+        }
+    }
+
+
+
 }

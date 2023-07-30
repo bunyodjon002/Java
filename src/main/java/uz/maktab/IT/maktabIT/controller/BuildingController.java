@@ -16,7 +16,8 @@ public class BuildingController {
     @Autowired
     BuildingService buildingService;
   @GetMapping
-    public Page<Building> getAll(@RequestParam(required = false)Pageable pageable){
+    public Page<Building> getAll(@RequestParam(required = false)  String key,   Pageable pageable){
+      if(key ==null) key ="";
       return buildingService.getAll(pageable);
   }
   @PostMapping

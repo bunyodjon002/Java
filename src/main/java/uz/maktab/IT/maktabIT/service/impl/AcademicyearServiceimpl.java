@@ -1,32 +1,44 @@
 package uz.maktab.IT.maktabIT.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import uz.maktab.IT.maktabIT.entity.Academicyear;
+
+import uz.maktab.IT.maktabIT.repository.AcademicyearRepository;
 import uz.maktab.IT.maktabIT.service.AcademicyearService;
+@Service
+public class AcademicyearServiceimpl implements AcademicyearService {
+    @Autowired
+    AcademicyearRepository academicyearRepository;
 
-public class Academicyear  implements AcademicyearService {
     @Override
-    public Page<AcademicyearService> getAll(Pageable pageable) {
-        return null;
+    public Page<Academicyear> getAll(Pageable pageable) {
+      return academicyearRepository.findAll(pageable);
     }
 
     @Override
-    public AcademicyearService create(AcademicyearService data) {
-        return null;
+    public Academicyear create(Academicyear data) {
+        return academicyearRepository.save(data);
     }
 
     @Override
-    public AcademicyearService update(AcademicyearService data) {
-        return null;
+    public Academicyear update(Academicyear data) {
+        return academicyearRepository.save(data);
     }
 
     @Override
-    public void delete(AcademicyearService data) {
+    public void delete(Academicyear data) {
+        academicyearRepository.delete(data);
 
     }
 
     @Override
     public void deleteById(Long id) {
+        academicyearRepository.deleteById(id);
 
     }
+
+
 }

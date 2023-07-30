@@ -18,7 +18,8 @@ public class TeacherController {
     TeacherService teacherService;
 
     @GetMapping
-    public Page<Teacher> getAll(@RequestParam(required = false) Pageable pageable){
+    public Page<Teacher> getAll(@RequestParam(required = false) String key, Pageable pageable){
+        if(key ==null) key ="";
         return teacherService.getAll(pageable);
     }
     @PostMapping

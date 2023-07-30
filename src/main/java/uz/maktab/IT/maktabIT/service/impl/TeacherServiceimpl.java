@@ -37,4 +37,15 @@ public class TeacherServiceimpl implements TeacherService {
         teacherRepository.deleteById(id);
 
     }
+
+    @Override
+    public Page<Teacher> findAllByNameContainsIgnoreCaseOrId(String key, Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return teacherRepository.findAllByNameContainsIgnoreCaseOrId(key , n ,pageable);
+        }  catch (Exception f){
+            return teacherRepository.findAllByNameContainsIgnoreCaseOrId(key,(long) -1,pageable);
+        }
+    }
 }
