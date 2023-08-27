@@ -3,6 +3,7 @@ package uz.maktab.IT.maktabIT.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -16,13 +17,16 @@ public class User {
     @Column(nullable = false)
     private String Surname;
 
-    @Size(max=50,min=8)
+//    @Size(max=50,min=60)
+//    @NotNull
+//    @Column(unique = true,nullable = true)
+//    private String Login;
+    //tog'ilangan ushub kodlarga tegilmasin!!!!!
+@Column(name = "login",unique = true,nullable = false)
+private String login;
+    @Size(max=30,min=60)
     @NotNull
-    @Column(nullable = true,unique = true)
-    private String Login;
-    @Size(max=50,min=8)
-    @NotNull
-    @Column(nullable = true,unique = true)
+    @Column(unique = true,nullable = false)
     private String password;
 
     private Boolean active;
@@ -34,7 +38,7 @@ public class User {
         this.id = id;
         this.name = name;
         Surname = surname;
-        Login = login;
+        login = login;
         this.password = password;
         this.active = active;
     }
@@ -44,7 +48,13 @@ public class User {
     @Column(name="position_id")
     private Set<Position> positions;
 
+    public Set<Position> getPositions() {
+        return positions;
+    }
 
+    public void setPositions(Set<Position> positions) {
+        this.positions = positions;
+    }
 
     public Long getId() {
         return id;
@@ -70,12 +80,12 @@ public class User {
         Surname = surname;
     }
 
-    public String getLogin() {
-        return Login;
+    public String getlogin() {
+        return login;
     }
 
-    public void setLogin(String login) {
-        Login = login;
+    public void setlogin(String login) {
+        login = login;
     }
 
     public String getPassword() {
@@ -93,4 +103,7 @@ public class User {
     public void setActive(Boolean active) {
         this.active = active;
     }
+
+
+
 }
