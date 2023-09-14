@@ -15,7 +15,7 @@ public class ScienceController {
     @Autowired
     ScienceService scienceService;
 
-    @GetMapping
+    @GetMapping("/science")
     public Page<Science> getAll(@RequestParam(required = false)String key,  Pageable pageable){
 
         if(key ==null) key ="";

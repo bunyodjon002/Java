@@ -16,7 +16,7 @@ public class An_additional_lessonController {
 
     @Autowired
     An_additional_lessonService anAdditionalLessonService;
-    @GetMapping
+    @GetMapping("/an_additional_lesson")
     public Page<An_additional_lesson> getAll(@RequestParam(required = false)  Pageable pageable){
 
         return anAdditionalLessonService.getAll(pageable);

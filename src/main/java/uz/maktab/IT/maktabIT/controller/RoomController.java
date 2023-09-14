@@ -9,19 +9,19 @@ import uz.maktab.IT.maktabIT.entity.Science;
 import uz.maktab.IT.maktabIT.service.RoomService;
 
 @RestController
-@RequestMapping("/room")
+@RequestMapping("/room/rooms")
 @CrossOrigin(origins = "*",maxAge = 3600)
 public class RoomController {
     @Autowired
     RoomService roomService;
 
-    @GetMapping
+    @GetMapping("/rooms")
     public Page<Room> getAll(@RequestParam(required = false) String key, Pageable pageable){
         if(key ==null) key ="";
 
         return roomService.getAll(pageable);
     }
-    @PostMapping
+    @PostMapping("/room/create")
     public Room create(@RequestBody Room room){
         return   roomService.create(room);
     }

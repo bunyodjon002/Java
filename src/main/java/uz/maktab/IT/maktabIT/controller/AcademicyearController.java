@@ -14,7 +14,7 @@ import uz.maktab.IT.maktabIT.service.AcademicyearService;
 public class AcademicyearController {
     @Autowired
     AcademicyearService academicyearService;
-    @GetMapping
+    @GetMapping("/academcyear")
     public Page<Academicyear> getAll(@RequestParam(required = false)   Pageable pageable){
 
         return academicyearService.getAll(pageable);

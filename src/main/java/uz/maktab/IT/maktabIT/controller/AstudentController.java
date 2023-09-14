@@ -14,7 +14,7 @@ import uz.maktab.IT.maktabIT.service.AstudentService;
 public class AstudentController {
     @Autowired
     AstudentService astudentService;
-    @GetMapping
+    @GetMapping("astudent")
     public Page<Astudent> getAll(@RequestParam(required = false) String key, Pageable pageable){
         if(key ==null) key ="";
         return astudentService.getAll(pageable);

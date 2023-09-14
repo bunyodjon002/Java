@@ -15,7 +15,7 @@ public class SclassController {
     @Autowired
    SclassService sclassService;
 
-    @GetMapping
+    @GetMapping("/sclass")
     public Page<Sclass> getAll(@RequestParam(required = false) String key, Pageable pageable){
         if(key ==null) key ="";
         return sclassService.getAll(pageable);

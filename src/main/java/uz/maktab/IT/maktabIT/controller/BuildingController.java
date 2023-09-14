@@ -15,7 +15,7 @@ public class BuildingController {
 
     @Autowired
     BuildingService buildingService;
-  @GetMapping
+  @GetMapping("/building")
     public Page<Building> getAll(@RequestParam(required = false)  String key,   Pageable pageable){
       if(key ==null) key ="";
       return buildingService.getAll(pageable);

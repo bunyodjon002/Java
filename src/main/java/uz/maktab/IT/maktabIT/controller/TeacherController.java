@@ -17,7 +17,7 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
 
-    @GetMapping
+    @GetMapping("/teachers")
     public Page<Teacher> getAll(@RequestParam(required = false) String key, Pageable pageable){
         if(key ==null) key ="";
         return teacherService.getAll(pageable);

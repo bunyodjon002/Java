@@ -4,10 +4,10 @@ import java.util.Set;
 import uz.maktab.IT.maktabIT.entity.User;
 
 public class UserDTO {
-    public Long id;
-    public String name;
-    public String surname;
-    public String Login;
+    private Long id;
+    private String name;
+    private String surname;
+    private String Login;
     private String password;
     private Boolean active;
 

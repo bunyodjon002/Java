@@ -14,7 +14,7 @@ import uz.maktab.IT.maktabIT.service.LessonService;
 public class LessonController {
     @Autowired
     LessonService lessonService;
-    @GetMapping
+    @GetMapping("/lesson")
     public Page<Lesson> getAll(@RequestParam(required = false)   Pageable pageable){
 
         return lessonService.getAll(pageable);
