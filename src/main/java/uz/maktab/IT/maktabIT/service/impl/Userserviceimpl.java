@@ -18,18 +18,13 @@ public class Userserviceimpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
-//    @Autowired
 
-
-
-    @Autowired
 private PasswordEncoder encoder;
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+ @Bean
+    PasswordEncoder getEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 
     @Override
