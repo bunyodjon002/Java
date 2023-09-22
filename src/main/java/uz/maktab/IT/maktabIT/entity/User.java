@@ -34,20 +34,20 @@ private String login;
     public User() {
     }
 
-    public User(Long id, String name, String surname, String login, String password, Boolean active) {
-        this.id = id;
-        this.name = name;
-        Surname = surname;
-        login = login;
-        this.password = password;
-        this.active = active;
-    }
+
     @ElementCollection(targetClass = Position.class,fetch = FetchType.EAGER)
     @CollectionTable(name = "user_position",
             joinColumns = @JoinColumn(name ="user_id"))
     @Column(name="position_id")
     private Set<Position> positions;
-
+//    public User(Long id, String name, String surname, String login, String password, Boolean active) {
+//        this.id = id;
+//        this.name = name;
+//        Surname = surname;
+//        login = login;
+//        this.password = password;
+//        this.active = active;
+//    }
     public Set<Position> getPositions() {
         return positions;
     }

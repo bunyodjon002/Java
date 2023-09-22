@@ -14,7 +14,7 @@ public interface UserService {
 
     UserDTO update(User user);
 
-    public Optional<UserDTO> getBuId(Long id);
+    public Optional<UserDTO> getById(Long id);
 
     UserDTO create(User user);
 
