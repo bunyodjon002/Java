@@ -28,7 +28,10 @@ public class UserController {
         return userService.create(user);
 
     }
-
+//    @PostMapping(consumes = "application/json")
+//    void addUser(@RequestBody User user) {
+//        userService.saveUser(User);
+//    }
 
     @PutMapping
     public UserDTO update(@RequestBody User user){
