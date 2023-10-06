@@ -1,8 +1,8 @@
 package uz.maktab.IT.maktabIT.security;
 
 public class Token {
-    private String token;
 
+    private String token;
 
     public Token(String token) {
         this.token = token;

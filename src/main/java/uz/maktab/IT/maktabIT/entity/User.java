@@ -34,6 +34,13 @@ private String login;
     public User() {
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
     @ElementCollection(targetClass = Position.class,fetch = FetchType.EAGER)
     @CollectionTable(name = "user_position",
@@ -80,13 +87,13 @@ private String login;
         Surname = surname;
     }
 
-    public String getlogin() {
-        return login;
-    }
-
-    public void setlogin(String login) {
-        login = login;
-    }
+//    public String getlogin() {
+//        return login;
+//    }
+//
+//    public void setlogin(String login) {
+//        login = login;
+//    }
 
     public String getPassword() {
         return password;
